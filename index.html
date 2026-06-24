@@ -458,15 +458,27 @@ async function api(action, payload = {}) {
 // ══════════════════════════════════════════════════════
 
 async function load() {
+  // ── กรณียังไม่ได้ตั้งค่า API_URL ──────────────────────
+  // ออกทันที อย่าดึง localStorage เก่ามาแสดง
+  if (!API_URL || API_URL === 'YOUR_SCRIPT_URL_HERE') {
+    tasks = [];
+    setStatus('⚙️ ยังไม่ได้ตั้งค่า API_URL');
+    showToast('⚠️ กรุณาใส่ API_URL ใน index.html ก่อนใช้งาน', 'warn');
+    return;
+  }
+
+  // ── โหลดจาก Google Sheets ─────────────────────────────
   setStatus('⏳ กำลังโหลด...');
   try {
     tasks = await api('getAll');
-    saveCache(); // อัปเดต cache
+    saveCache();
     setStatus('จัดการงานทุกที่');
   } catch (e) {
+    // เครือข่ายมีปัญหา → ใช้ cache เป็น fallback
     console.warn('API โหลดไม่ได้ ใช้ cache แทน:', e.message);
     loadCache();
     setStatus('⚠️ Offline (ใช้ cache)');
+    showToast('⚠️ เชื่อมต่อ Sheets ไม่ได้ ใช้ข้อมูล cache', 'warn');
   }
 }
 
@@ -998,9 +1010,8 @@ async function init() {
   renderDate();
   buildPP('');
   render(); // แสดง UI ว่างก่อน (เร็ว)
-  await load(); // โหลดข้อมูลจาก Google Sheets
-  if (!tasks.length) seed(); // seed ถ้า Sheet ยังว่าง
-  render(); // re-render พร้อมข้อมูล
+  await load(); // โหลดจาก Google Sheets
+  render(); // re-render พร้อมข้อมูล (Sheet ว่าง = board ว่าง ✅)
 }
 
 init();
