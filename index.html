@@ -217,6 +217,43 @@ textarea.fi{resize:vertical;min-height:58px;}
   font-size:.82rem;font-weight:600;z-index:500;transition:opacity .3s;
   white-space:nowrap;pointer-events:none;opacity:0;
 }
+/* ── Fetching Data Popup ── */
+#fetchPopup{
+  display:none;position:fixed;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%) scale(.88);
+  background:rgba(17,24,39,.93);
+  color:#fff;padding:16px 26px;
+  border-radius:20px;z-index:700;
+  align-items:center;gap:13px;
+  font-size:.9rem;font-weight:700;
+  letter-spacing:.01em;
+  box-shadow:0 12px 40px rgba(0,0,0,.5);
+  white-space:nowrap;pointer-events:none;
+  opacity:0;
+  transition:opacity .2s,transform .2s;
+}
+#fetchPopup.show{
+  display:flex;opacity:1;
+  transform:translate(-50%,-50%) scale(1);
+}
+.fetch-spin{
+  width:20px;height:20px;flex-shrink:0;
+  border:2.5px solid rgba(255,255,255,.2);
+  border-top-color:#fff;
+  border-radius:50%;
+  animation:fetchspin .7s linear infinite;
+}
+@keyframes fetchspin{to{transform:rotate(360deg)}}
+.fetch-dots span{
+  display:inline-block;
+  animation:fetchdot 1.2s infinite;
+  opacity:0;
+}
+.fetch-dots span:nth-child(1){animation-delay:0s}
+.fetch-dots span:nth-child(2){animation-delay:.2s}
+.fetch-dots span:nth-child(3){animation-delay:.4s}
+@keyframes fetchdot{0%,80%,100%{opacity:0}40%{opacity:1}}
 </style>
 </head>
 <body>
@@ -265,6 +302,11 @@ textarea.fi{resize:vertical;min-height:58px;}
 </div>
 <button class="fab" id="fabBtn" onclick="openAdd()">＋</button>
 <div id="toast"></div>
+<div id="fetchPopup">
+  <div class="fetch-spin"></div>
+  <span>Fetching Data</span>
+  <span class="fetch-dots"><span>.</span><span>.</span><span>.</span></span>
+</div>
 <!-- DETAIL MODAL -->
 <div class="ovl" id="detailOvl" onclick="ovlBgClick(event,'detailOvl')">
   <div class="sheet">
@@ -352,8 +394,35 @@ let selectedPerson = '';
 let isBusy = false; // ป้องกัน double-submit
 
 // ══════════════════════════════════════════════════════
+//  Loading Popup
+//  ใช้ counter รองรับ request ซ้อนกันได้
+// ══════════════════════════════════════════════════════
+
+let _fetchCount = 0;
+let _fetchTimer = null;
+
+function showFetch() {
+  _fetchCount++;
+  // delay 80ms ป้องกัน popup กระพริบกับ request ที่เสร็จเร็วมาก
+  clearTimeout(_fetchTimer);
+  _fetchTimer = setTimeout(() => {
+    if (_fetchCount > 0) {
+      document.getElementById('fetchPopup').classList.add('show');
+    }
+  }, 80);
+}
+
+function hideFetch() {
+  _fetchCount = Math.max(0, _fetchCount - 1);
+  if (_fetchCount === 0) {
+    clearTimeout(_fetchTimer);
+    document.getElementById('fetchPopup').classList.remove('show');
+  }
+}
+
+// ══════════════════════════════════════════════════════
 //  API Helper
-//  ทุก request ผ่านฟังก์ชันนี้
+//  ทุก request ผ่านฟังก์ชันนี้ — popup แสดงอัตโนมัติ
 // ══════════════════════════════════════════════════════
 
 async function api(action, payload = {}) {
@@ -361,22 +430,27 @@ async function api(action, payload = {}) {
     throw new Error('กรุณาใส่ API_URL ใน index.html ก่อน');
   }
 
-  if (action === 'getAll') {
-    // GET request
-    const res = await fetch(API_URL + '?action=getAll', { cache: 'no-store' });
+  showFetch();
+  try {
+    if (action === 'getAll') {
+      // GET request
+      const res = await fetch(API_URL + '?action=getAll', { cache: 'no-store' });
+      const json = await res.json();
+      if (!json.ok) throw new Error(json.error);
+      return json.data;
+    }
+
+    // POST request (add / update / delete / import)
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      body: JSON.stringify({ action, ...payload })
+    });
     const json = await res.json();
     if (!json.ok) throw new Error(json.error);
     return json.data;
+  } finally {
+    hideFetch(); // ซ่อนเสมอไม่ว่าจะสำเร็จหรือ error
   }
-
-  // POST request (add / update / delete / import)
-  const res = await fetch(API_URL, {
-    method: 'POST',
-    body: JSON.stringify({ action, ...payload })
-  });
-  const json = await res.json();
-  if (!json.ok) throw new Error(json.error);
-  return json.data;
 }
 
 // ══════════════════════════════════════════════════════
