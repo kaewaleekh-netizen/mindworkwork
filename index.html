@@ -23,7 +23,6 @@ body{
   overscroll-behavior:none;
   -webkit-overflow-scrolling:touch;
 }
-/* ── HEADER ── */
 header{
   background:linear-gradient(135deg,#4361ee,#7209b7);color:#fff;
   padding:calc(14px + var(--safe-top)) 16px 13px;
@@ -35,17 +34,14 @@ header h1{font-size:1.15rem;font-weight:800}
 header p{font-size:.72rem;opacity:.8;margin-top:2px}
 .hdate{text-align:right;font-size:.72rem;opacity:.8}
 .hdate b{display:block;font-size:.95rem;font-weight:700;opacity:1}
-/* ── SUMMARY ── */
 .summary{display:flex;gap:7px;padding:11px 13px 4px;max-width:700px;margin:0 auto}
 .sc{flex:1;background:var(--card);border-radius:12px;padding:9px 6px;box-shadow:var(--sh);text-align:center}
 .sc-n{font-size:1.3rem;font-weight:800}
 .sc-l{font-size:.66rem;color:var(--muted);margin-top:1px}
-/* ── VIEW TABS ── */
 .vtabs{display:flex;gap:0;padding:8px 13px 0;max-width:700px;margin:0 auto}
 .vtab{flex:1;padding:9px 6px;text-align:center;font-size:.8rem;font-weight:700;cursor:pointer;
   border-bottom:2.5px solid var(--border);color:var(--muted);transition:all .18s;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit}
 .vtab.active{color:var(--pri);border-bottom-color:var(--pri)}
-/* ── FILTER BAR ── */
 .fwrap{background:var(--card);border-bottom:1px solid var(--border);box-shadow:0 1px 4px rgba(0,0,0,.04)}
 .frow{display:flex;gap:6px;padding:8px 12px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;align-items:center}
 .frow::-webkit-scrollbar{display:none}
@@ -54,18 +50,15 @@ header p{font-size:.72rem;opacity:.8;margin-top:2px}
   transition:all .16s;font-family:inherit}
 .chip.active{background:var(--pri);border-color:var(--pri);color:#fff}
 .chip.sort-on{background:#f0fff4;border-color:#48bb78;color:#276749}
-/* stage legend */
 .sleg{display:flex;gap:12px;padding:5px 13px 0;max-width:700px;margin:0 auto}
 .sl{display:flex;align-items:center;gap:4px;font-size:.68rem;color:var(--muted)}
 .sld{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-/* ── BOARD CONTENT ── */
 .content{padding:10px 13px;max-width:700px;margin:0 auto}
 .dg{margin-bottom:13px}
 .dgh{display:flex;align-items:center;gap:7px;margin-bottom:6px;padding:0 2px}
 .dgd{width:9px;height:9px;border-radius:50%;flex-shrink:0}
 .dgn{font-weight:700;font-size:.85rem}
 .dgc{margin-left:auto;font-size:.67rem;font-weight:700;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:10px}
-/* ── TASK CARD ── */
 .tc{background:var(--card);border-radius:var(--r);padding:11px 12px;margin-bottom:7px;
   border-left:4px solid transparent;display:flex;align-items:center;gap:9px;
   box-shadow:var(--sh);cursor:pointer;transition:transform .12s}
@@ -78,7 +71,6 @@ header p{font-size:.72rem;opacity:.8;margin-top:2px}
 .tag-dl.overdue{background:#fff5f5;color:#c53030}
 .tag-dl.soon{background:#fffaf0;color:#c05621}
 .tag-note{background:#fffbeb;color:#b7791f;font-size:.64rem;font-weight:500;padding:2px 6px;border-radius:5px}
-/* stage dots on card */
 .sdots{display:flex;gap:4px;align-items:center;flex-shrink:0;padding:8px 3px;cursor:pointer}
 .sd{width:9px;height:9px;border-radius:50%;background:var(--border);transition:all .2s;flex-shrink:0}
 .tc[data-stage="0"] .sd:nth-child(1){background:#4f8ef7}
@@ -87,7 +79,6 @@ header p{font-size:.72rem;opacity:.8;margin-top:2px}
 .tc[data-stage="2"] .sd:nth-child(1){background:#4f8ef7}
 .tc[data-stage="2"] .sd:nth-child(2){background:#ed8936}
 .tc[data-stage="2"] .sd:nth-child(3){background:#48bb78}
-/* ── CALENDAR VIEW ── */
 .calwrap{padding:0 0 10px;max-width:100%}
 .cal-nav{display:flex;align-items:center;justify-content:space-between;padding:10px 14px 6px;max-width:700px;margin:0 auto}
 .cal-nav-title{font-size:.88rem;font-weight:700}
@@ -96,16 +87,13 @@ header p{font-size:.72rem;opacity:.8;margin-top:2px}
 .cal-nav-btn:active{background:var(--bg)}
 .cal-today-btn{padding:5px 12px;border-radius:16px;border:1.5px solid var(--pri);background:transparent;
   color:var(--pri);font-size:.74rem;font-weight:700;cursor:pointer;font-family:inherit}
-/* calendar table */
 .cal-outer{overflow-x:auto;-webkit-overflow-scrolling:touch;padding:0 13px 10px}
 .cal-table{border-collapse:separate;border-spacing:0;min-width:100%;width:max-content;font-size:.75rem}
-/* time column */
 .ct-time{
   width:44px;min-width:44px;padding:0 6px 0 0;text-align:right;
   color:var(--muted);font-size:.68rem;font-weight:600;vertical-align:top;
   position:sticky;left:0;background:var(--bg);z-index:5;
 }
-/* day header */
 .ct-day-h{
   min-width:100px;padding:6px 5px;text-align:center;
   background:var(--card);border-bottom:2px solid var(--border);
@@ -115,9 +103,7 @@ header p{font-size:.72rem;opacity:.8;margin-top:2px}
 .ct-day-name{font-size:.65rem;color:var(--muted)}
 .ct-day-num.today{width:28px;height:28px;background:var(--pri);color:#fff;
   border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin:0 auto 2px}
-/* header time corner */
 .ct-corner{position:sticky;left:0;top:0;z-index:6;background:var(--bg);border:none}
-/* hour row */
 .ct-cell{
   min-width:100px;height:52px;padding:3px 4px;vertical-align:top;
   border-top:1px solid var(--border);border-left:1px solid var(--border);
@@ -126,7 +112,6 @@ header p{font-size:.72rem;opacity:.8;margin-top:2px}
 .ct-cell:last-child{border-right:1px solid var(--border)}
 .ct-cell.today-col{background:#f7f9ff}
 tr:last-child .ct-cell{border-bottom:1px solid var(--border)}
-/* allday row */
 .ct-allday{
   min-width:100px;min-height:36px;padding:4px;vertical-align:top;
   border-top:1px solid var(--border);border-left:1px solid var(--border);
@@ -137,7 +122,6 @@ tr:last-child .ct-cell{border-bottom:1px solid var(--border)}
 .ct-allday-h{font-size:.64rem;font-weight:700;color:var(--muted);padding:0 6px;text-align:right;
   position:sticky;left:0;background:var(--bg);z-index:5;vertical-align:top}
 .ct-hour-label{position:absolute;top:-8px;right:3px;font-size:.63rem;font-weight:600;color:var(--muted)}
-/* task chip in calendar */
 .cal-chip{
   display:block;border-radius:5px;padding:2px 5px;font-size:.68rem;
   font-weight:600;color:#fff;margin-bottom:2px;cursor:pointer;
@@ -153,20 +137,18 @@ tr:last-child .ct-cell{border-bottom:1px solid var(--border)}
 }
 .cal-chip-allday:active{opacity:.75}
 .cal-stage-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.7);flex-shrink:0}
-/* now line */
 .now-line{position:absolute;left:0;right:0;height:2px;background:#e53e3e;z-index:3;pointer-events:none}
 .now-dot{position:absolute;left:-4px;top:-4px;width:8px;height:8px;background:#e53e3e;border-radius:50%}
-/* ── FAB ── */
 .fab{
   position:fixed;bottom:calc(22px + var(--safe-bot));right:18px;
   width:52px;height:52px;border-radius:50%;
   background:linear-gradient(135deg,#4361ee,#7209b7);
   color:#fff;border:none;font-size:1.5rem;cursor:pointer;
   box-shadow:0 4px 18px rgba(67,97,238,.45);
-  display:flex;align-items:center;justify-content:center;z-index:200;transition:transform .15s;
+  display:flex;align-items:center;justify-content:center;z-index:200;transition:all .15s;
 }
 .fab:active{transform:scale(.9)}
-/* ── OVERLAY (mobile keyboard safe) ── */
+.fab:disabled{opacity:.5;cursor:not-allowed}
 .ovl{
   display:none;position:fixed;
   top:0;left:0;right:0;bottom:0;
@@ -188,7 +170,6 @@ tr:last-child .ct-cell{border-bottom:1px solid var(--border)}
 }
 @keyframes su{from{transform:translateY(44px);opacity:0}to{transform:translateY(0);opacity:1}}
 .sh-handle{width:36px;height:4px;border-radius:2px;background:var(--border);margin:10px auto 0}
-/* ── DETAIL MODAL ── */
 .dm-top{padding:15px 17px 11px;border-bottom:1px solid var(--border)}
 .dm-chips{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:9px}
 .dm-title{font-size:1.02rem;font-weight:800;line-height:1.4}
@@ -197,7 +178,6 @@ tr:last-child .ct-cell{border-bottom:1px solid var(--border)}
 .di-ic{width:27px;height:27px;border-radius:8px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;margin-top:1px}
 .di-v{font-size:.85rem;flex:1;padding-top:5px;line-height:1.4}
 .di-v.muted{color:var(--muted)}
-/* stage selector */
 .stsel{display:flex;gap:6px;padding:11px 17px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .stb{flex:1;padding:8px 4px;border-radius:10px;border:2px solid var(--border);background:transparent;
   font-size:.71rem;font-weight:700;cursor:pointer;font-family:inherit;color:var(--muted);transition:all .16s;text-align:center;line-height:1.3}
@@ -212,7 +192,6 @@ tr:last-child .ct-cell{border-bottom:1px solid var(--border)}
 .btn-pri{background:linear-gradient(135deg,#4361ee,#7209b7);color:#fff}
 .btn-del{background:#fff5f5;color:#c53030}
 .btn-sec{background:var(--bg);color:var(--muted)}
-/* ── FORM MODAL ── */
 .fm{padding:18px 17px}
 .fm-title{font-size:.98rem;font-weight:800;margin-bottom:17px}
 .fg{margin-bottom:13px}
@@ -229,9 +208,15 @@ textarea.fi{resize:vertical;min-height:58px;}
 .pp{padding:6px 11px;border-radius:20px;font-size:.74rem;font-weight:700;color:#fff;cursor:pointer;
   opacity:.4;transition:opacity .15s,transform .1s;border:2.5px solid transparent}
 .pp.sel{opacity:1;border-color:rgba(0,0,0,.2);transform:scale(1.05)}
-/* ── EMPTY ── */
 .empty{text-align:center;padding:46px 20px;color:var(--muted)}
 .empty .ei{font-size:2.3rem;margin-bottom:9px}
+/* ── Toast notification ── */
+#toast{
+  position:fixed;bottom:calc(90px + var(--safe-bot));left:50%;transform:translateX(-50%);
+  background:#1a202c;color:#fff;padding:9px 18px;border-radius:20px;
+  font-size:.82rem;font-weight:600;z-index:500;transition:opacity .3s;
+  white-space:nowrap;pointer-events:none;opacity:0;
+}
 </style>
 </head>
 <body>
@@ -247,12 +232,10 @@ textarea.fi{resize:vertical;min-height:58px;}
   <div class="sc"><div class="sc-n" style="color:#ed8936" id="sWait">0</div><div class="sc-l">รอแอคชั่น</div></div>
   <div class="sc"><div class="sc-n" style="color:#48bb78" id="sDone">0</div><div class="sc-l">เสร็จแล้ว</div></div>
 </div>
-<!-- VIEW TABS -->
 <div class="vtabs">
   <button class="vtab active" id="tab-board" onclick="setView('board')">📋 งาน</button>
   <button class="vtab" id="tab-cal" onclick="setView('calendar')">📅 สัปดาห์</button>
 </div>
-<!-- BOARD SECTION -->
 <div id="boardSection">
   <div class="fwrap">
     <div class="frow" id="filterRow">
@@ -267,13 +250,10 @@ textarea.fi{resize:vertical;min-height:58px;}
   </div>
   <div class="content" id="board"></div>
 </div>
-<!-- CALENDAR SECTION -->
 <div id="calSection" style="display:none">
   <div class="cal-nav">
     <button class="cal-nav-btn" onclick="shiftWeek(-1)">‹</button>
-    <div>
-      <div class="cal-nav-title" id="calTitle"></div>
-    </div>
+    <div><div class="cal-nav-title" id="calTitle"></div></div>
     <div style="display:flex;gap:6px;align-items:center">
       <button class="cal-today-btn" onclick="goToday()">วันนี้</button>
       <button class="cal-nav-btn" onclick="shiftWeek(1)">›</button>
@@ -284,7 +264,8 @@ textarea.fi{resize:vertical;min-height:58px;}
   </div>
 </div>
 <button class="fab" id="fabBtn" onclick="openAdd()">＋</button>
-<!-- ══ DETAIL MODAL ══ -->
+<div id="toast"></div>
+<!-- DETAIL MODAL -->
 <div class="ovl" id="detailOvl" onclick="ovlBgClick(event,'detailOvl')">
   <div class="sheet">
     <div class="sh-handle"></div>
@@ -301,7 +282,7 @@ textarea.fi{resize:vertical;min-height:58px;}
     <div style="height:4px"></div>
   </div>
 </div>
-<!-- ══ FORM MODAL ══ -->
+<!-- FORM MODAL -->
 <div class="ovl" id="formOvl" onclick="ovlBgClick(event,'formOvl')">
   <div class="sheet" id="formSheet">
     <div class="sh-handle"></div>
@@ -326,45 +307,115 @@ textarea.fi{resize:vertical;min-height:58px;}
       </div>
       <div style="display:flex;gap:8px;margin-top:4px">
         <button class="btn btn-sec" onclick="closeFormOvl()">ยกเลิก</button>
-        <button class="btn btn-pri" onclick="saveTask()">บันทึก</button>
+        <button class="btn btn-pri" id="saveBtn" onclick="saveTask()">บันทึก</button>
       </div>
       <div style="height:6px"></div>
     </div>
   </div>
 </div>
+
 <script>
-const PEOPLE={
+// ══════════════════════════════════════════════════════
+//  ⚙️  CONFIG — วาง URL จาก Apps Script ตรงนี้
+// ══════════════════════════════════════════════════════
+const API_URL = 'https://script.google.com/macros/s/AKfycbyfTvg3gmcpsKXYG-ss3Fp_3DK4lYYd5tuUTpimFIdRacGFxhUYmdd61giMiEGAS1Bhjw/exec';
+// ตัวอย่าง: 'https://script.google.com/macros/s/AKfyc.../exec'
+
+const STORAGE = 'taskboard_v3'; // localStorage cache สำรองไว้ถ้า offline
+
+// ══════════════════════════════════════════════════════
+//  Constants
+// ══════════════════════════════════════════════════════
+const PEOPLE = {
   'Aeko':'#e05a9a','Pea':'#48bb78','Oil':'#ed8936','Golf':'#4361ee',
   'INS':'#7b5ea7','QA':'#38b2ac','RD':'#2d9cdb','Planing':'#d4a017',
   'Account':'#e53e3e','Warehouse':'#9c6644','Other':'#718096'
 };
-const PK=Object.keys(PEOPLE);
-const STAGES=['กำลังทำ','รอแอคชั่นต่อ','เสร็จแล้ว'];
-const SC=['#4f8ef7','#ed8936','#48bb78'];
-const THDAYS=['อา.','จ.','อ.','พ.','พฤ.','ศ.','ส.'];
-const THMONTHS=['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
-const HOURS=[7,8,9,10,11,12,13,14,15,16,17,18,19,20];
-const STORAGE='taskboard_v3';
+const PK = Object.keys(PEOPLE);
+const STAGES = ['กำลังทำ','รอแอคชั่นต่อ','เสร็จแล้ว'];
+const SC = ['#4f8ef7','#ed8936','#48bb78'];
+const THDAYS = ['อา.','จ.','อ.','พ.','พฤ.','ศ.','ส.'];
+const THMONTHS = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+const HOURS = [7,8,9,10,11,12,13,14,15,16,17,18,19,20];
 
-let tasks=[];
-let currentFilter='all';
-let sortDL=false;
-let currentView='board';
-let calWeekOffset=0;
-let detailId=null;
-let editId=null;
-let selectedPerson='';
+// ══════════════════════════════════════════════════════
+//  State
+// ══════════════════════════════════════════════════════
+let tasks = [];
+let currentFilter = 'all';
+let sortDL = false;
+let currentView = 'board';
+let calWeekOffset = 0;
+let detailId = null;
+let editId = null;
+let selectedPerson = '';
+let isBusy = false; // ป้องกัน double-submit
 
-function load(){
-  try{const r=localStorage.getItem(STORAGE);if(r)tasks=JSON.parse(r);}
-  catch(e){tasks=[];}
+// ══════════════════════════════════════════════════════
+//  API Helper
+//  ทุก request ผ่านฟังก์ชันนี้
+// ══════════════════════════════════════════════════════
+
+async function api(action, payload = {}) {
+  if (!API_URL || API_URL === 'YOUR_SCRIPT_URL_HERE') {
+    throw new Error('กรุณาใส่ API_URL ใน index.html ก่อน');
+  }
+
+  if (action === 'getAll') {
+    // GET request
+    const res = await fetch(API_URL + '?action=getAll', { cache: 'no-store' });
+    const json = await res.json();
+    if (!json.ok) throw new Error(json.error);
+    return json.data;
+  }
+
+  // POST request (add / update / delete / import)
+  const res = await fetch(API_URL, {
+    method: 'POST',
+    body: JSON.stringify({ action, ...payload })
+  });
+  const json = await res.json();
+  if (!json.ok) throw new Error(json.error);
+  return json.data;
 }
-function save(){localStorage.setItem(STORAGE,JSON.stringify(tasks));}
-function seed(){
-  if(tasks.length)return;
-  const now=new Date();
-  const dl=(h,m)=>{const x=new Date(now);x.setHours(h,m,0,0);return x.toISOString().slice(0,16);};
-  tasks=[
+
+// ══════════════════════════════════════════════════════
+//  Load & Cache
+// ══════════════════════════════════════════════════════
+
+async function load() {
+  setStatus('⏳ กำลังโหลด...');
+  try {
+    tasks = await api('getAll');
+    saveCache(); // อัปเดต cache
+    setStatus('จัดการงานทุกที่');
+  } catch (e) {
+    console.warn('API โหลดไม่ได้ ใช้ cache แทน:', e.message);
+    loadCache();
+    setStatus('⚠️ Offline (ใช้ cache)');
+  }
+}
+
+function saveCache() {
+  try { localStorage.setItem(STORAGE, JSON.stringify(tasks)); } catch(e) {}
+}
+
+function loadCache() {
+  try {
+    const r = localStorage.getItem(STORAGE);
+    if (r) tasks = JSON.parse(r);
+  } catch(e) { tasks = []; }
+}
+
+// ══════════════════════════════════════════════════════
+//  Seed data (ใช้ครั้งแรกถ้า Sheet ว่าง)
+// ══════════════════════════════════════════════════════
+
+function seed() {
+  if (tasks.length) return;
+  const now = new Date();
+  const dl = (h, m) => { const x = new Date(now); x.setHours(h,m,0,0); return x.toISOString().slice(0,16); };
+  tasks = [
     {id:uid(),person:'Aeko',task:'ตรวจสไลดน้อง',deadline:'',note:'',stage:0},
     {id:uid(),person:'QA',task:'ขึ้นสเปคให้ครบๆ',deadline:dl(11,0),note:'',stage:0},
     {id:uid(),person:'QA',task:'เช็คสเปคที่พี่มินพิมมา',deadline:dl(11,0),note:'',stage:1},
@@ -374,77 +425,126 @@ function seed(){
     {id:uid(),person:'INS',task:'ดราฟข้อมูลชาใส',deadline:'',note:'ขอดูก่อน',stage:0},
     {id:uid(),person:'INS',task:'ยังไม่มีตัวอย่างสั้นดีนไรเลย',deadline:'',note:'หมายเหตุ',stage:0},
   ];
-  save();
 }
-function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2);}
 
-function pColor(p){return PEOPLE[p]||'#4361ee';}
-function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-function fmtDL(dl){
-  if(!dl)return null;
-  const d=new Date(dl);if(isNaN(d))return null;
+// ══════════════════════════════════════════════════════
+//  UI State Helpers
+// ══════════════════════════════════════════════════════
+
+function setStatus(msg) {
+  const el = document.getElementById('hSub');
+  if (el) el.textContent = msg;
+}
+
+function setBusy(on) {
+  isBusy = on;
+  const fab = document.getElementById('fabBtn');
+  const saveBtn = document.getElementById('saveBtn');
+  if (fab) fab.disabled = on;
+  if (saveBtn) saveBtn.disabled = on;
+}
+
+let _toastTimer;
+function showToast(msg, type = 'ok') {
+  const el = document.getElementById('toast');
+  if (!el) return;
+  el.style.background = type === 'err' ? '#742a2a' : type === 'warn' ? '#744210' : '#1a202c';
+  el.textContent = msg;
+  el.style.opacity = '1';
+  clearTimeout(_toastTimer);
+  _toastTimer = setTimeout(() => { el.style.opacity = '0'; }, 2500);
+}
+
+// ══════════════════════════════════════════════════════
+//  Utilities
+// ══════════════════════════════════════════════════════
+
+function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2); }
+function pColor(p) { return PEOPLE[p] || '#4361ee'; }
+function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function pad(n) { return String(n).padStart(2,'0'); }
+
+function fmtDL(dl) {
+  if (!dl) return null;
+  const d = new Date(dl);
+  if (isNaN(d)) return null;
   return `${d.getDate()} ${THMONTHS[d.getMonth()]} ${d.getFullYear()+543} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
 }
-function pad(n){return String(n).padStart(2,'0');}
-function dlClass(dl){
-  if(!dl)return'';
-  const diff=new Date(dl)-new Date();
-  if(diff<0)return'overdue';
-  if(diff<3*3600*1000)return'soon';
-  return'';
+
+function dlClass(dl) {
+  if (!dl) return '';
+  const diff = new Date(dl) - new Date();
+  if (diff < 0) return 'overdue';
+  if (diff < 3*3600*1000) return 'soon';
+  return '';
 }
 
-function setView(v){
-  currentView=v;
-  document.getElementById('tab-board').classList.toggle('active',v==='board');
-  document.getElementById('tab-cal').classList.toggle('active',v==='calendar');
-  document.getElementById('boardSection').style.display=v==='board'?'':'none';
-  document.getElementById('calSection').style.display=v==='calendar'?'':'none';
-  document.getElementById('fabBtn').style.display=v==='board'?'':'none';
-  if(v==='calendar')renderCalendar();
+// ══════════════════════════════════════════════════════
+//  View Management
+// ══════════════════════════════════════════════════════
+
+function setView(v) {
+  currentView = v;
+  document.getElementById('tab-board').classList.toggle('active', v === 'board');
+  document.getElementById('tab-cal').classList.toggle('active', v === 'calendar');
+  document.getElementById('boardSection').style.display = v === 'board' ? '' : 'none';
+  document.getElementById('calSection').style.display = v === 'calendar' ? '' : 'none';
+  document.getElementById('fabBtn').style.display = v === 'board' ? '' : 'none';
+  if (v === 'calendar') renderCalendar();
   else render();
 }
 
-function render(){
-  document.getElementById('sAll').textContent=tasks.length;
-  document.getElementById('sWork').textContent=tasks.filter(t=>t.stage===0).length;
-  document.getElementById('sWait').textContent=tasks.filter(t=>t.stage===1).length;
-  document.getElementById('sDone').textContent=tasks.filter(t=>t.stage===2).length;
-  let list=[...tasks];
-  if(currentFilter==='stage0')list=list.filter(t=>t.stage===0);
-  else if(currentFilter==='stage1')list=list.filter(t=>t.stage===1);
-  else if(currentFilter==='stage2')list=list.filter(t=>t.stage===2);
-  else if(currentFilter.startsWith('p:'))list=list.filter(t=>t.person===currentFilter.slice(2));
-  if(sortDL){
-    list.sort((a,b)=>{
-      if(!a.deadline&&!b.deadline)return 0;
-      if(!a.deadline)return 1;if(!b.deadline)return-1;
-      return new Date(a.deadline)-new Date(b.deadline);
+// ══════════════════════════════════════════════════════
+//  Board Render
+// ══════════════════════════════════════════════════════
+
+function render() {
+  document.getElementById('sAll').textContent = tasks.length;
+  document.getElementById('sWork').textContent = tasks.filter(t => t.stage === 0).length;
+  document.getElementById('sWait').textContent = tasks.filter(t => t.stage === 1).length;
+  document.getElementById('sDone').textContent = tasks.filter(t => t.stage === 2).length;
+
+  let list = [...tasks];
+  if (currentFilter === 'stage0') list = list.filter(t => t.stage === 0);
+  else if (currentFilter === 'stage1') list = list.filter(t => t.stage === 1);
+  else if (currentFilter === 'stage2') list = list.filter(t => t.stage === 2);
+  else if (currentFilter.startsWith('p:')) list = list.filter(t => t.person === currentFilter.slice(2));
+
+  if (sortDL) {
+    list.sort((a, b) => {
+      if (!a.deadline && !b.deadline) return 0;
+      if (!a.deadline) return 1;
+      if (!b.deadline) return -1;
+      return new Date(a.deadline) - new Date(b.deadline);
     });
   }
-  const board=document.getElementById('board');
-  if(!list.length){
-    board.innerHTML='<div class="empty"><div class="ei">✅</div><p>ไม่มีงานในตอนนี้</p></div>';
-    renderFilterBtns();return;
+
+  const board = document.getElementById('board');
+  if (!list.length) {
+    board.innerHTML = '<div class="empty"><div class="ei">✅</div><p>ไม่มีงานในตอนนี้</p></div>';
+    renderFilterBtns();
+    return;
   }
-  const groups={};
-  list.forEach(t=>{if(!groups[t.person])groups[t.person]=[];groups[t.person].push(t);});
-  board.innerHTML=Object.entries(groups).map(([person,pt])=>{
-    const col=pColor(person);
-    return`<div class="dg">
+
+  const groups = {};
+  list.forEach(t => { if (!groups[t.person]) groups[t.person] = []; groups[t.person].push(t); });
+
+  board.innerHTML = Object.entries(groups).map(([person, pt]) => {
+    const col = pColor(person);
+    return `<div class="dg">
       <div class="dgh">
         <div class="dgd" style="background:${col}"></div>
         <span class="dgn">${esc(person)}</span>
         <span class="dgc">${pt.length} งาน</span>
       </div>
-      ${pt.map(t=>{
-        const dlFmt=fmtDL(t.deadline),dlCls=dlClass(t.deadline);
-        return`<div class="tc" data-stage="${t.stage}" style="border-left-color:${col}" onclick="cardClick(event,'${t.id}')">
+      ${pt.map(t => {
+        const dlFmt = fmtDL(t.deadline), dlCls = dlClass(t.deadline);
+        return `<div class="tc" data-stage="${t.stage}" style="border-left-color:${col}" onclick="cardClick(event,'${t.id}')">
           <div class="tc-body">
             <div class="tc-name">${esc(t.task)}</div>
             <div class="tc-meta">
-              ${dlFmt?`<span class="tag tag-dl ${dlCls}">🕐 ${esc(dlFmt)}</span>`:''}
-              ${t.note?`<span class="tag-note">📌 ${esc(t.note)}</span>`:''}
+              ${dlFmt ? `<span class="tag tag-dl ${dlCls}">🕐 ${esc(dlFmt)}</span>` : ''}
+              ${t.note ? `<span class="tag-note">📌 ${esc(t.note)}</span>` : ''}
             </div>
           </div>
           <div class="sdots" onclick="cycleStage(event,'${t.id}')">
@@ -457,277 +557,385 @@ function render(){
   renderFilterBtns();
 }
 
-function renderFilterBtns(){
-  const row=document.getElementById('filterRow');
-  row.querySelectorAll('.dynchip').forEach(b=>b.remove());
-  const sortBtn=document.getElementById('sortBtn');
-  const frag=document.createDocumentFragment();
-  [{f:'stage0',l:'🔵 กำลังทำ'},{f:'stage1',l:'🟠 รอแอคชั่น'},{f:'stage2',l:'🟢 เสร็จแล้ว'}].forEach(s=>{
-    const b=document.createElement('button');
-    b.className='chip dynchip'+(currentFilter===s.f?' active':'');
-    b.textContent=s.l;b.onclick=()=>setFilter(s.f);frag.appendChild(b);
+function renderFilterBtns() {
+  const row = document.getElementById('filterRow');
+  row.querySelectorAll('.dynchip').forEach(b => b.remove());
+  const sortBtn = document.getElementById('sortBtn');
+  const frag = document.createDocumentFragment();
+
+  [{f:'stage0',l:'🔵 กำลังทำ'},{f:'stage1',l:'🟠 รอแอคชั่น'},{f:'stage2',l:'🟢 เสร็จแล้ว'}].forEach(s => {
+    const b = document.createElement('button');
+    b.className = 'chip dynchip' + (currentFilter === s.f ? ' active' : '');
+    b.textContent = s.l;
+    b.onclick = () => setFilter(s.f);
+    frag.appendChild(b);
   });
-  const allP=[...new Set(tasks.map(t=>t.person))];
-  if(allP.length){
-    allP.forEach(p=>{
-      const col=pColor(p);
-      const b=document.createElement('button');
-      b.className='chip dynchip';
-      b.textContent=p;
-      if(currentFilter==='p:'+p){b.style.background=col;b.style.borderColor=col;b.style.color='#fff';}
-      else{b.style.borderColor=col;b.style.color=col;}
-      b.onclick=()=>setFilter('p:'+p);
-      frag.appendChild(b);
-    });
-  }
-  row.insertBefore(frag,sortBtn);
+
+  [...new Set(tasks.map(t => t.person))].forEach(p => {
+    const col = pColor(p);
+    const b = document.createElement('button');
+    b.className = 'chip dynchip';
+    b.textContent = p;
+    if (currentFilter === 'p:' + p) { b.style.background = col; b.style.borderColor = col; b.style.color = '#fff'; }
+    else { b.style.borderColor = col; b.style.color = col; }
+    b.onclick = () => setFilter('p:' + p);
+    frag.appendChild(b);
+  });
+
+  row.insertBefore(frag, sortBtn);
 }
 
-function setFilter(f){
-  currentFilter=f;
-  document.querySelectorAll('.frow .chip').forEach(b=>{
-    b.classList.remove('active');b.style.background='';b.style.color='';b.style.borderColor='';
+function setFilter(f) {
+  currentFilter = f;
+  document.querySelectorAll('.frow .chip').forEach(b => {
+    b.classList.remove('active'); b.style.background = ''; b.style.color = ''; b.style.borderColor = '';
   });
-  if(f==='all')document.querySelector('.frow .chip').classList.add('active');
+  if (f === 'all') document.querySelector('.frow .chip').classList.add('active');
   render();
 }
 
-function toggleSort(){
-  sortDL=!sortDL;
-  document.getElementById('sortBtn').classList.toggle('sort-on',sortDL);
+function toggleSort() {
+  sortDL = !sortDL;
+  document.getElementById('sortBtn').classList.toggle('sort-on', sortDL);
   render();
 }
 
-function getWeekDates(offset){
-  const today=new Date();
-  const dow=today.getDay();
-  const mon=new Date(today);
-  mon.setDate(today.getDate()-(dow===0?6:dow-1)+offset*7);
+// ══════════════════════════════════════════════════════
+//  Calendar Render
+// ══════════════════════════════════════════════════════
+
+function getWeekDates(offset) {
+  const today = new Date();
+  const dow = today.getDay();
+  const mon = new Date(today);
+  mon.setDate(today.getDate() - (dow === 0 ? 6 : dow - 1) + offset * 7);
   mon.setHours(0,0,0,0);
-  return Array.from({length:7},(_,i)=>{const d=new Date(mon);d.setDate(mon.getDate()+i);return d;});
+  return Array.from({length:7}, (_, i) => { const d = new Date(mon); d.setDate(mon.getDate() + i); return d; });
 }
-function shiftWeek(d){calWeekOffset+=d;renderCalendar();}
-function goToday(){calWeekOffset=0;renderCalendar();}
 
-function renderCalendar(){
-  document.getElementById('sAll').textContent=tasks.length;
-  document.getElementById('sWork').textContent=tasks.filter(t=>t.stage===0).length;
-  document.getElementById('sWait').textContent=tasks.filter(t=>t.stage===1).length;
-  document.getElementById('sDone').textContent=tasks.filter(t=>t.stage===2).length;
-  const week=getWeekDates(calWeekOffset);
-  const today=new Date();today.setHours(0,0,0,0);
-  const s=week[0],e=week[6];
-  document.getElementById('calTitle').textContent=
+function shiftWeek(d) { calWeekOffset += d; renderCalendar(); }
+function goToday() { calWeekOffset = 0; renderCalendar(); }
+
+function renderCalendar() {
+  document.getElementById('sAll').textContent = tasks.length;
+  document.getElementById('sWork').textContent = tasks.filter(t => t.stage === 0).length;
+  document.getElementById('sWait').textContent = tasks.filter(t => t.stage === 1).length;
+  document.getElementById('sDone').textContent = tasks.filter(t => t.stage === 2).length;
+
+  const week = getWeekDates(calWeekOffset);
+  const today = new Date(); today.setHours(0,0,0,0);
+  const s = week[0], e = week[6];
+  document.getElementById('calTitle').textContent =
     `${s.getDate()} ${THMONTHS[s.getMonth()]} – ${e.getDate()} ${THMONTHS[e.getMonth()]} ${e.getFullYear()+543}`;
-  const table=document.getElementById('calTable');
-  let html='<thead><tr>';
-  html+=`<th class="ct-corner"></th>`;
-  week.forEach(d=>{
-    const isToday=d.getTime()===today.getTime();
-    const numHtml=isToday?`<div class="ct-day-num today">${d.getDate()}</div>`:`<div class="ct-day-num">${d.getDate()}</div>`;
-    html+=`<th class="ct-day-h">${numHtml}<div class="ct-day-name">${THDAYS[d.getDay()]}</div></th>`;
+
+  const table = document.getElementById('calTable');
+  let html = '<thead><tr><th class="ct-corner"></th>';
+  week.forEach(d => {
+    const isToday = d.getTime() === today.getTime();
+    const num = isToday ? `<div class="ct-day-num today">${d.getDate()}</div>` : `<div class="ct-day-num">${d.getDate()}</div>`;
+    html += `<th class="ct-day-h">${num}<div class="ct-day-name">${THDAYS[d.getDay()]}</div></th>`;
   });
-  html+='</tr></thead><tbody>';
-  const unscheduled=tasks.filter(t=>!t.deadline);
-  html+=`<tr><td class="ct-time ct-allday-h" style="padding-top:8px">ตลอดวัน</td>`;
-  week.forEach((d,di)=>{
-    const isToday=d.getTime()===today.getTime();
-    const chips=di===0
-      ?unscheduled.map(t=>`<span class="cal-chip-allday" style="background:${pColor(t.person)}" onclick="cardClick(event,'${t.id}')">
+  html += '</tr></thead><tbody>';
+
+  const unscheduled = tasks.filter(t => !t.deadline);
+  html += `<tr><td class="ct-time ct-allday-h" style="padding-top:8px">ตลอดวัน</td>`;
+  week.forEach((d, di) => {
+    const isToday = d.getTime() === today.getTime();
+    const chips = di === 0
+      ? unscheduled.map(t => `<span class="cal-chip-allday" style="background:${pColor(t.person)}" onclick="cardClick(event,'${t.id}')">
           <span class="cal-stage-dot" style="background:${SC[t.stage]}"></span>${esc(t.task.length>12?t.task.slice(0,11)+'…':t.task)}
         </span>`).join('')
-      :'';
-    html+=`<td class="ct-allday${isToday?' today-col':''}">${chips}</td>`;
+      : '';
+    html += `<td class="ct-allday${isToday?' today-col':''}">${chips}</td>`;
   });
-  html+='</tr>';
-  const nowH=new Date().getHours();
-  const nowM=new Date().getMinutes();
-  const isThisWeek=calWeekOffset===0;
-  HOURS.forEach(h=>{
-    html+=`<tr><td class="ct-time" style="padding-top:6px">${pad(h)}:00</td>`;
-    week.forEach(d=>{
-      const isToday=d.getTime()===today.getTime();
-      const cellTasks=tasks.filter(t=>{
-        if(!t.deadline)return false;
-        const td=new Date(t.deadline);
-        const td0=new Date(td);td0.setHours(0,0,0,0);
-        return td0.getTime()===d.getTime()&&td.getHours()===h;
+  html += '</tr>';
+
+  const nowH = new Date().getHours(), nowM = new Date().getMinutes();
+  const isThisWeek = calWeekOffset === 0;
+
+  HOURS.forEach(h => {
+    html += `<tr><td class="ct-time" style="padding-top:6px">${pad(h)}:00</td>`;
+    week.forEach(d => {
+      const isToday = d.getTime() === today.getTime();
+      const cellTasks = tasks.filter(t => {
+        if (!t.deadline) return false;
+        const td = new Date(t.deadline), td0 = new Date(td); td0.setHours(0,0,0,0);
+        return td0.getTime() === d.getTime() && td.getHours() === h;
       });
-      const showNow=isToday&&isThisWeek&&nowH===h;
-      const nowPct=Math.round((nowM/60)*100);
-      html+=`<td class="ct-cell${isToday?' today-col':''}" style="position:relative">
-        ${showNow?`<div class="now-line" style="top:${nowPct}%"><div class="now-dot"></div></div>`:''}
-        ${cellTasks.map(t=>`<div class="cal-chip" style="background:${pColor(t.person)}" onclick="cardClick(event,'${t.id}')">${esc(t.task.length>14?t.task.slice(0,13)+'…':t.task)}</div>`).join('')}
+      const showNow = isToday && isThisWeek && nowH === h;
+      const nowPct = Math.round((nowM / 60) * 100);
+      html += `<td class="ct-cell${isToday?' today-col':''}" style="position:relative">
+        ${showNow ? `<div class="now-line" style="top:${nowPct}%"><div class="now-dot"></div></div>` : ''}
+        ${cellTasks.map(t => `<div class="cal-chip" style="background:${pColor(t.person)}" onclick="cardClick(event,'${t.id}')">${esc(t.task.length>14?t.task.slice(0,13)+'…':t.task)}</div>`).join('')}
       </td>`;
     });
-    html+='</tr>';
+    html += '</tr>';
   });
-  html+='</tbody>';
-  table.innerHTML=html;
+  html += '</tbody>';
+  table.innerHTML = html;
 }
 
-function cycleStage(e,id){
+// ══════════════════════════════════════════════════════
+//  Stage Change — Optimistic Update
+//  อัปเดต UI ทันที แล้วค่อย sync API
+// ══════════════════════════════════════════════════════
+
+async function cycleStage(e, id) {
   e.stopPropagation();
-  const t=tasks.find(x=>x.id===id);if(!t)return;
-  t.stage=(t.stage+1)%3;save();render();
+  const t = tasks.find(x => x.id === id);
+  if (!t) return;
+
+  const prev = t.stage;
+  t.stage = (t.stage + 1) % 3; // อัปเดต UI ก่อน (optimistic)
+  render();
+
+  try {
+    await api('update', { task: t });
+    saveCache();
+  } catch (err) {
+    t.stage = prev; // rollback ถ้า API ผิดพลาด
+    render();
+    showToast('❌ บันทึก stage ไม่สำเร็จ', 'err');
+  }
 }
 
-function cardClick(e,id){
+async function setStageDetail(s) {
+  const t = tasks.find(x => x.id === detailId);
+  if (!t) return;
+
+  const prev = t.stage;
+  t.stage = s;
+  renderDetail(detailId);
+  if (currentView === 'board') render(); else renderCalendar();
+
+  try {
+    await api('update', { task: t });
+    saveCache();
+  } catch (err) {
+    t.stage = prev; // rollback
+    renderDetail(detailId);
+    if (currentView === 'board') render(); else renderCalendar();
+    showToast('❌ บันทึก stage ไม่สำเร็จ', 'err');
+  }
+}
+
+// ══════════════════════════════════════════════════════
+//  Card & Detail
+// ══════════════════════════════════════════════════════
+
+function cardClick(e, id) {
   e.stopPropagation();
-  detailId=id;renderDetail(id);
+  detailId = id;
+  renderDetail(id);
   document.getElementById('detailOvl').classList.add('open');
   lockScroll();
 }
 
-function renderDetail(id){
-  const t=tasks.find(x=>x.id===id);if(!t)return;
-  const col=pColor(t.person),dlFmt=fmtDL(t.deadline),dlCls=dlClass(t.deadline);
-  document.getElementById('dm-chips').innerHTML=
-    `<span class="tag" style="background:${col}">${esc(t.person)}</span>`+
-    (dlFmt?`<span class="tag tag-dl ${dlCls}">🕐 ${esc(dlFmt)}</span>`:'');
-  document.getElementById('dm-title').textContent=t.task;
-  let info='';
-  if(dlFmt)info+=`<div class="di-row"><div class="di-ic">🕐</div><div class="di-v">${esc(dlFmt)}</div></div>`;
-  if(t.note)info+=`<div class="di-row"><div class="di-ic">📌</div><div class="di-v">${esc(t.note)}</div></div>`;
-  if(!dlFmt&&!t.note)info+=`<div class="di-row"><div class="di-ic">💬</div><div class="di-v muted">ไม่มีข้อมูลเพิ่มเติม</div></div>`;
-  document.getElementById('dm-info').innerHTML=info;
-  document.getElementById('dm-stsel').innerHTML=STAGES.map((s,i)=>
-    `<button class="stb${t.stage===i?' a'+i:''}" onclick="setStageDetail(${i})"><span class="stb-dot"></span>${s}</button>`
+function renderDetail(id) {
+  const t = tasks.find(x => x.id === id);
+  if (!t) return;
+  const col = pColor(t.person), dlFmt = fmtDL(t.deadline), dlCls = dlClass(t.deadline);
+  document.getElementById('dm-chips').innerHTML =
+    `<span class="tag" style="background:${col}">${esc(t.person)}</span>` +
+    (dlFmt ? `<span class="tag tag-dl ${dlCls}">🕐 ${esc(dlFmt)}</span>` : '');
+  document.getElementById('dm-title').textContent = t.task;
+  let info = '';
+  if (dlFmt) info += `<div class="di-row"><div class="di-ic">🕐</div><div class="di-v">${esc(dlFmt)}</div></div>`;
+  if (t.note) info += `<div class="di-row"><div class="di-ic">📌</div><div class="di-v">${esc(t.note)}</div></div>`;
+  if (!dlFmt && !t.note) info += `<div class="di-row"><div class="di-ic">💬</div><div class="di-v muted">ไม่มีข้อมูลเพิ่มเติม</div></div>`;
+  document.getElementById('dm-info').innerHTML = info;
+  document.getElementById('dm-stsel').innerHTML = STAGES.map((s, i) =>
+    `<button class="stb${t.stage === i ? ' a' + i : ''}" onclick="setStageDetail(${i})"><span class="stb-dot"></span>${s}</button>`
   ).join('');
 }
 
-function setStageDetail(s){
-  const t=tasks.find(x=>x.id===detailId);if(!t)return;
-  t.stage=s;save();
-  if(currentView==='board')render();else renderCalendar();
-  renderDetail(detailId);
-}
+async function deleteFromDetail() {
+  if (!confirm('ลบงานนี้?')) return;
+  const id = detailId;
 
-function deleteFromDetail(){
-  if(!confirm('ลบงานนี้?'))return;
-  tasks=tasks.filter(x=>x.id!==detailId);
-  save();if(currentView==='board')render();else renderCalendar();
+  tasks = tasks.filter(x => x.id !== id); // optimistic
+  if (currentView === 'board') render(); else renderCalendar();
   closeOvl('detailOvl');
+
+  try {
+    await api('delete', { id });
+    saveCache();
+    showToast('🗑 ลบงานแล้ว');
+  } catch (err) {
+    showToast('❌ ลบไม่สำเร็จ กรุณาลองใหม่', 'err');
+    await load(); // reload ข้อมูลจาก Sheet
+    render();
+  }
 }
 
-function editFromDetail(){
+function editFromDetail() {
   closeOvl('detailOvl');
-  setTimeout(()=>openEdit(detailId),80);
+  setTimeout(() => openEdit(detailId), 80);
 }
 
-function buildPP(sel){
-  selectedPerson=sel||'';
-  document.getElementById('ppGrid').innerHTML=PK.map(p=>
-    `<div class="pp${sel===p?' sel':''}" style="background:${pColor(p)}" onclick="selectPP('${p}')">${p}</div>`
+// ══════════════════════════════════════════════════════
+//  Form — Add / Edit
+// ══════════════════════════════════════════════════════
+
+function buildPP(sel) {
+  selectedPerson = sel || '';
+  document.getElementById('ppGrid').innerHTML = PK.map(p =>
+    `<div class="pp${sel === p ? ' sel' : ''}" style="background:${pColor(p)}" onclick="selectPP('${p}')">${p}</div>`
   ).join('');
-  if(!PK.includes(sel))document.getElementById('fPerson').value=sel||'';
-  else document.getElementById('fPerson').value='';
+  document.getElementById('fPerson').value = PK.includes(sel) ? '' : (sel || '');
 }
 
-function selectPP(p){
-  selectedPerson=p;
-  document.getElementById('fPerson').value='';
+function selectPP(p) {
+  selectedPerson = p;
+  document.getElementById('fPerson').value = '';
   buildPP(p);
 }
 
-function openAdd(){
-  editId=null;
-  document.getElementById('fm-title').textContent='เพิ่มงานใหม่';
-  document.getElementById('fTask').value='';
-  document.getElementById('fDeadline').value='';
-  document.getElementById('fNote').value='';
+function openAdd() {
+  editId = null;
+  document.getElementById('fm-title').textContent = 'เพิ่มงานใหม่';
+  document.getElementById('fTask').value = '';
+  document.getElementById('fDeadline').value = '';
+  document.getElementById('fNote').value = '';
   document.getElementById('fTask').classList.remove('err');
   buildPP('');
   document.getElementById('formOvl').classList.add('open');
   lockScroll();
-  setTimeout(()=>document.getElementById('fTask').focus(),250);
+  setTimeout(() => document.getElementById('fTask').focus(), 250);
 }
 
-function openEdit(id){
-  const t=tasks.find(x=>x.id===id);if(!t)return;
-  editId=id;
-  document.getElementById('fm-title').textContent='แก้ไขงาน';
-  document.getElementById('fTask').value=t.task;
-  document.getElementById('fDeadline').value=t.deadline||'';
-  document.getElementById('fNote').value=t.note||'';
+function openEdit(id) {
+  const t = tasks.find(x => x.id === id);
+  if (!t) return;
+  editId = id;
+  document.getElementById('fm-title').textContent = 'แก้ไขงาน';
+  document.getElementById('fTask').value = t.task;
+  document.getElementById('fDeadline').value = t.deadline || '';
+  document.getElementById('fNote').value = t.note || '';
   document.getElementById('fTask').classList.remove('err');
   buildPP(t.person);
   document.getElementById('formOvl').classList.add('open');
   lockScroll();
 }
 
-function closeFormOvl(){closeOvl('formOvl');}
+function closeFormOvl() { closeOvl('formOvl'); }
 
-function saveTask(){
-  const task=document.getElementById('fTask').value.trim();
-  const manual=document.getElementById('fPerson').value.trim();
-  const person=manual||selectedPerson||'Other';
-  const deadline=document.getElementById('fDeadline').value;
-  const note=document.getElementById('fNote').value.trim();
-  if(!task){document.getElementById('fTask').classList.add('err');return;}
+async function saveTask() {
+  if (isBusy) return;
+
+  const taskName = document.getElementById('fTask').value.trim();
+  const manual = document.getElementById('fPerson').value.trim();
+  const person = manual || selectedPerson || 'Other';
+  const deadline = document.getElementById('fDeadline').value;
+  const note = document.getElementById('fNote').value.trim();
+
+  if (!taskName) { document.getElementById('fTask').classList.add('err'); return; }
   document.getElementById('fTask').classList.remove('err');
-  if(editId){
-    const t=tasks.find(x=>x.id===editId);
-    if(t)Object.assign(t,{person,task,deadline,note});
-  }else{
-    tasks.push({id:uid(),person,task,deadline,note,stage:0});
+
+  closeOvl('formOvl');
+  setBusy(true);
+
+  try {
+    if (editId) {
+      // ── UPDATE ──
+      const t = tasks.find(x => x.id === editId);
+      if (t) {
+        Object.assign(t, { person, task: taskName, deadline, note });
+        if (currentView === 'board') render(); else renderCalendar(); // optimistic
+        await api('update', { task: t });
+        saveCache();
+        showToast('✅ บันทึกแล้ว');
+      }
+    } else {
+      // ── ADD ──
+      const newTask = { id: uid(), person, task: taskName, deadline, note, stage: 0 };
+      tasks.push(newTask); // optimistic
+      if (currentView === 'board') render(); else renderCalendar();
+      await api('add', { task: newTask });
+      saveCache();
+      showToast('✅ เพิ่มงานแล้ว');
+    }
+  } catch (err) {
+    showToast('❌ บันทึกไม่สำเร็จ: ' + err.message, 'err');
+    await load(); // reload จาก Sheet
+    if (currentView === 'board') render(); else renderCalendar();
+  } finally {
+    setBusy(false);
   }
-  save();closeOvl('formOvl');
-  if(currentView==='board')render();else renderCalendar();
 }
 
-let _scrollY=0;
-function lockScroll(){
-  _scrollY=window.scrollY;
-  document.body.style.position='fixed';
-  document.body.style.top=-_scrollY+'px';
-  document.body.style.width='100%';
-  document.body.style.overflowY='hidden';
+// ══════════════════════════════════════════════════════
+//  Scroll Lock (ป้องกัน body scroll ตอน modal เปิด)
+// ══════════════════════════════════════════════════════
+
+let _scrollY = 0;
+function lockScroll() {
+  _scrollY = window.scrollY;
+  document.body.style.cssText = `position:fixed;top:-${_scrollY}px;width:100%;overflow-y:hidden`;
 }
-function unlockScroll(){
-  document.body.style.position='';
-  document.body.style.top='';
-  document.body.style.width='';
-  document.body.style.overflowY='';
-  window.scrollTo(0,_scrollY);
+function unlockScroll() {
+  document.body.style.cssText = '';
+  window.scrollTo(0, _scrollY);
 }
-function closeOvl(id){
+function closeOvl(id) {
   document.getElementById(id).classList.remove('open');
-  if(!document.querySelector('.ovl.open'))unlockScroll();
+  if (!document.querySelector('.ovl.open')) unlockScroll();
 }
-function ovlBgClick(e,id){
-  if(e.target===e.currentTarget)closeOvl(id);
+function ovlBgClick(e, id) {
+  if (e.target === e.currentTarget) closeOvl(id);
 }
 
-if(window.visualViewport){
-  window.visualViewport.addEventListener('resize',()=>{
-    const vv=window.visualViewport;
-    document.querySelectorAll('.ovl.open').forEach(ovl=>{
-      ovl.style.height=vv.height+'px';
-      ovl.style.top=vv.pageTop+'px';
+if (window.visualViewport) {
+  window.visualViewport.addEventListener('resize', () => {
+    const vv = window.visualViewport;
+    document.querySelectorAll('.ovl.open').forEach(ovl => {
+      ovl.style.height = vv.height + 'px';
+      ovl.style.top = vv.pageTop + 'px';
     });
   });
-  window.visualViewport.addEventListener('scroll',()=>{
-    const vv=window.visualViewport;
-    document.querySelectorAll('.ovl.open').forEach(ovl=>{ovl.style.top=vv.pageTop+'px';});
+  window.visualViewport.addEventListener('scroll', () => {
+    const vv = window.visualViewport;
+    document.querySelectorAll('.ovl.open').forEach(ovl => { ovl.style.top = vv.pageTop + 'px'; });
   });
 }
 
-document.addEventListener('focusin',e=>{
-  if(['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName)){
-    setTimeout(()=>{e.target.scrollIntoView({behavior:'smooth',block:'center'});},350);
+document.addEventListener('focusin', e => {
+  if (['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName)) {
+    setTimeout(() => e.target.scrollIntoView({ behavior: 'smooth', block: 'center' }), 350);
   }
 });
 
-function renderDate(){
-  const now=new Date();
-  const days=['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัส','ศุกร์','เสาร์'];
-  document.getElementById('hDay').textContent='วัน'+days[now.getDay()];
-  document.getElementById('hDate').textContent=`${now.getDate()} ${THMONTHS[now.getMonth()]} ${now.getFullYear()+543}`;
+// ══════════════════════════════════════════════════════
+//  Date Header
+// ══════════════════════════════════════════════════════
+
+function renderDate() {
+  const now = new Date();
+  const days = ['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัส','ศุกร์','เสาร์'];
+  document.getElementById('hDay').textContent = 'วัน' + days[now.getDay()];
+  document.getElementById('hDate').textContent = `${now.getDate()} ${THMONTHS[now.getMonth()]} ${now.getFullYear()+543}`;
 }
 
-load();seed();renderDate();render();buildPP('');
-setInterval(()=>{if(currentView==='board')render();else renderCalendar();},60000);
+// ══════════════════════════════════════════════════════
+//  Init
+// ══════════════════════════════════════════════════════
+
+async function init() {
+  renderDate();
+  buildPP('');
+  render(); // แสดง UI ว่างก่อน (เร็ว)
+  await load(); // โหลดข้อมูลจาก Google Sheets
+  if (!tasks.length) seed(); // seed ถ้า Sheet ยังว่าง
+  render(); // re-render พร้อมข้อมูล
+}
+
+init();
+
+// Refresh ทุก 60 วินาที
+setInterval(async () => {
+  await load();
+  if (currentView === 'board') render(); else renderCalendar();
+}, 60000);
 </script>
 </body>
 </html>
