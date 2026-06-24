@@ -7,81 +7,6 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Task Board</title>
 <style>
-/* ── LOGIN SCREEN ── */
-#loginScreen{
-  position:fixed;inset:0;z-index:9999;
-  background:linear-gradient(160deg,#f0f4ff 0%,#faf5ff 50%,#fff0f8 100%);
-  display:flex;align-items:center;justify-content:center;padding:24px;
-}
-/* floating blobs */
-#loginScreen::before,#loginScreen::after{
-  content:'';position:absolute;border-radius:50%;filter:blur(60px);opacity:.35;pointer-events:none;
-}
-#loginScreen::before{
-  width:300px;height:300px;
-  background:radial-gradient(circle,#818cf8,#c084fc);
-  top:-60px;right:-60px;
-}
-#loginScreen::after{
-  width:260px;height:260px;
-  background:radial-gradient(circle,#34d399,#60a5fa);
-  bottom:-50px;left:-50px;
-}
-.login-box{
-  background:#fff;
-  border-radius:28px;
-  padding:40px 28px 32px;
-  width:100%;max-width:340px;
-  text-align:center;
-  box-shadow:0 20px 60px rgba(99,102,241,.15),0 4px 16px rgba(0,0,0,.06);
-  position:relative;z-index:1;
-}
-.login-logo{
-  width:64px;height:64px;border-radius:20px;
-  background:linear-gradient(135deg,#6366f1,#a855f7);
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.8rem;margin:0 auto 16px;
-  box-shadow:0 8px 24px rgba(99,102,241,.35);
-}
-.login-title{color:#1e1b4b;font-size:1.35rem;font-weight:800;margin-bottom:4px;letter-spacing:-.3px}
-.login-sub{color:#94a3b8;font-size:.78rem;margin-bottom:28px}
-.login-input-wrap{position:relative;margin-bottom:10px}
-.login-input{
-  box-sizing:border-box;
-  width:100%;padding:14px 46px 14px 18px;
-  border-radius:14px;border:2px solid #e2e8f0;
-  background:#f8fafc;color:#1e293b;
-  font-size:16px;font-family:inherit;letter-spacing:4px;
-  transition:border-color .2s,box-shadow .2s;text-align:center;
-  -webkit-appearance:none;appearance:none;
-}
-.login-input::placeholder{letter-spacing:0;color:#cbd5e1;font-size:.85rem}
-.login-input:focus{
-  outline:none;border-color:#818cf8;background:#fff;
-  box-shadow:0 0 0 4px rgba(129,140,248,.15);
-}
-.toggle-pw{
-  position:absolute;right:14px;top:50%;transform:translateY(-50%);
-  background:none;border:none;color:#94a3b8;font-size:1rem;
-  cursor:pointer;padding:4px;line-height:1;
-}
-.login-btn{
-  width:100%;padding:14px;border-radius:14px;border:none;
-  background:linear-gradient(135deg,#6366f1 0%,#a855f7 100%);
-  color:#fff;font-size:.95rem;font-weight:700;cursor:pointer;
-  font-family:inherit;transition:transform .15s,box-shadow .15s;
-  margin-top:6px;margin-bottom:14px;
-  box-shadow:0 4px 18px rgba(99,102,241,.4);
-}
-.login-btn:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(99,102,241,.5)}
-.login-btn:active{transform:scale(.97);opacity:.9}
-.login-err{
-  color:#ef4444;font-size:.76rem;
-  min-height:18px;margin-bottom:2px;
-}
-.login-err.shake{animation:shake .3s}
-@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
-.login-hint{color:#cbd5e1;font-size:.69rem}
 </style>
 :root{
   --bg:#f0f2f9;--card:#fff;--pri:#4361ee;--text:#1a202c;--muted:#718096;
@@ -336,25 +261,6 @@ textarea.fi{resize:vertical;min-height:58px;font-size:16px}
 </style>
 </head>
 <body>
-
-<!-- ══ LOGIN SCREEN ══ -->
-<div id="loginScreen">
-  <div class="login-box">
-    <div class="login-logo">📋</div>
-    <div class="login-title">Task Board</div>
-    <div class="login-sub">กรอกรหัสผ่านเพื่อเข้าใช้งาน</div>
-    <div class="login-input-wrap">
-      <input class="login-input" type="password" id="pwInput"
-             placeholder="รหัสผ่าน"
-             onkeydown="if(event.key==='Enter')doLogin()"
-             autocomplete="current-password">
-      <button class="toggle-pw" onclick="togglePw()" tabindex="-1" id="togglePwBtn">👁</button>
-    </div>
-    <div class="login-err" id="loginErr"></div>
-    <button class="login-btn" onclick="doLogin()">เข้าใช้งาน</button>
-    <div class="login-hint">รหัสผ่านจะถูกจดจำ 7 วัน</div>
-  </div>
-</div>
 
 <header>
   <div class="hrow">
@@ -922,70 +828,8 @@ function renderDate(){
 }
 
 /* ════════════════════════════════
-   PASSWORD GATE
-════════════════════════════════ */
-const PW_KEY='tb_auth';
-const PW_HASH='3baa6b1c0002626593e1f19880c68624b92c1f0fc3aaa2e450ee118023ef11a7'; // SHA-256 of 0645795491
-const PW_TTL=7*24*60*60*1000; // 7 days ms
-
-async function sha256(str){
-  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str));
-  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
-}
-
-function checkAuth(){
-  try{
-    const raw=localStorage.getItem(PW_KEY);
-    if(!raw)return false;
-    const{ts}=JSON.parse(raw);
-    return Date.now()-ts < PW_TTL;
-  }catch(e){return false;}
-}
-
-function grantAuth(){
-  localStorage.setItem(PW_KEY,JSON.stringify({ts:Date.now()}));
-  const ls=document.getElementById('loginScreen');
-  ls.style.transition='opacity .4s';ls.style.opacity='0';
-  setTimeout(()=>ls.style.display='none',400);
-}
-
-async function doLogin(){
-  const val=document.getElementById('pwInput').value;
-  const err=document.getElementById('loginErr');
-  if(!val){err.textContent='กรุณากรอกรหัสผ่าน';return;}
-  const hash=await sha256(val);
-  if(hash===PW_HASH){
-    err.textContent='';grantAuth();
-  }else{
-    err.textContent='รหัสผ่านไม่ถูกต้อง ลองใหม่อีกครั้ง';
-    err.classList.remove('shake');
-    void err.offsetWidth; // reflow to restart animation
-    err.classList.add('shake');
-    document.getElementById('pwInput').value='';
-    document.getElementById('pwInput').focus();
-  }
-}
-
-function togglePw(){
-  const inp=document.getElementById('pwInput');
-  const btn=document.getElementById('togglePwBtn');
-  if(inp.type==='password'){inp.type='text';btn.textContent='🙈';}
-  else{inp.type='password';btn.textContent='👁';}
-}
-
-// bump timestamp on every interaction (activity = stay logged in)
-document.addEventListener('click',()=>{
-  if(checkAuth())localStorage.setItem(PW_KEY,JSON.stringify({ts:Date.now()}));
-},{passive:true});
-
-/* ════════════════════════════════
    INIT
 ════════════════════════════════ */
-if(checkAuth()){
-  document.getElementById('loginScreen').style.display='none';
-}else{
-  setTimeout(()=>document.getElementById('pwInput').focus(),300);
-}
 load();seed();renderDate();render();
 buildPP('');
 setInterval(()=>{if(currentView==='board')render();else renderCalendar();},60000);
